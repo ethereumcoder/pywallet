@@ -116,10 +116,8 @@ def create_wallet(network='btctest', seed=None, children=1):
         acct_priv_key = root_keys[-1]
         acct_pub_key = acct_priv_key.public_key
 
-        wallet["private_key_hex"] = acct_priv_key.to_hex()
-        wallet["private_key"] = acct_priv_key
-        wallet["public_key_hex"] = acct_pub_key.to_hex()
-        wallet["public_key"] = acct_pub_key
+        wallet["private_key"] = acct_priv_key.to_hex()
+        wallet["public_key"] = acct_pub_key.to_hex()
         wallet["xprivate_key"] = acct_priv_key.to_b58check()
         wallet["xpublic_key"] = acct_pub_key.to_b58check()
 
@@ -147,10 +145,8 @@ def create_wallet(network='btctest', seed=None, children=1):
             network=network.upper(), seed=seed)
 
         # account level
-        wallet["private_key_hex"] = my_wallet.private_key.get_key().decode()
-        wallet["private_key"] = my_wallet.private_key.get_key()
-        wallet["public_key_hex"] = my_wallet.public_key.get_key().decode()
-        wallet["public_key"] = my_wallet.public_key.get_key()
+        wallet["private_key"] = my_wallet.private_key.get_key().decode()
+        wallet["public_key"] = my_wallet.public_key.get_key().decode()
         wallet["xprivate_key"] = my_wallet.serialize_b58(private=True)
         wallet["xpublic_key"] = my_wallet.serialize_b58(private=False)
         wallet["address"] = my_wallet.to_address()
